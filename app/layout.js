@@ -34,8 +34,8 @@ export default function RootLayout({ children }) {
           <Header/>
           <main className="min-h-screen">{children}</main>
           {/* footer */}
-          <footer className="bg-muted/50 py-12">
-            <div className="container mx-auto px-4 text-center text-gray-200">
+          <footer className="bg-orange-500 dark:bg-muted/50 py-12">
+            <div className="container mx-auto px-4 text-center text-gray-800 dark:text-gray-200">
               <p>Made with love ARJUN</p>
             </div>
           </footer>
