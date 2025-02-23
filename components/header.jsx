@@ -4,16 +4,19 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import { Button } from './ui/button'
 import { ChevronDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon } from 'lucide-react'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import Image from 'next/image'
 
 const Header = () => {
     return (
-        <header className='fixed top-0 w-full border-b dark:bg-background/80 backdrop-blur-md z-50 dark:supports-[backdrop-filter]:bg-background/60'>
-            <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-                <Link className="flex items-center justify-center h-16" href="/">
-                    <Image src="/logo1.png" alt="ELEV" width={200} height={60} className="h-12 w-auto object-contain" />
-                </Link>
+        <header className="fixed top-0 w-full border-b dark:bg-background/80 backdrop-blur-md z-50 dark:supports-[backdrop-filter]:bg-background/60">
+            <nav className="container mx-auto px-4 h-16 flex ">
+                {/* Centering the logo */}
+                <div className="h-16 flex-1 flex items-center">
+                    <Link className="flex items-center h-full object-contain" href="/">
+                        <Image src="/logo1.png" alt="ELEV" width={200} height={60} className=" h-12 md:h-16 w-auto object-contain " />
+                    </Link>
+                </div>
                 <div className='flex items-center space-x-2 md:space-x-4'>
                     <SignedIn>
                         <Link href={"/dashboard"}>
