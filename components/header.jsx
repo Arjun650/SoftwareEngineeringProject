@@ -3,35 +3,73 @@ import { ModeToggle } from './toggle'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import { Button } from './ui/button'
-import { LayoutDashboard } from 'lucide-react'
+import { ChevronDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon } from 'lucide-react'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu'
+import Image from 'next/image'
 
 const Header = () => {
     return (
-        <header className='fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60'>
-            <nav className='container mx-auto px-4 h-16 flex items-center justify-between'>
-                <Link className='h-12 py-1 w-auto object-contain' href='/'>LOGO</Link>
-                <div>
+        <header className='fixed top-0 w-full border-b dark:bg-background/80 backdrop-blur-md z-50 dark:supports-[backdrop-filter]:bg-background/60'>
+            <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+                <Link className="flex items-center justify-center h-16" href="/">
+                    <Image src="/logo1.png" alt="ELEV" width={200} height={60} className="h-12 w-auto object-contain" />
+                </Link>
+                <div className='flex items-center space-x-2 md:space-x-4'>
                     <SignedIn>
                         <Link href={"/dashboard"}>
-                            <Button>
-                                <LayoutDashboard className='h-4 w-4'/>
-                                Industry Insights
+                            <Button variant='outline'>
+                                <LayoutDashboard className='h-4 w-4' />
+                                <span className='hidden md:block'>
+                                    Industry Insights
+                                </span>
                             </Button>
                         </Link>
                     </SignedIn>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button>
+                                <StarsIcon className='h-4 w-4' />
+                                <span className='hidden md:block'>
+                                    Growth Tools
+                                </span>
+                                <ChevronDown />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            <DropdownMenuItem>
+                                <Link href={'/resume'} className='flex items-center gap-2'>
+                                    <FileText className='h-4 w-4' />
+                                    <span>Build Resume</span>
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href={'/ai-cover-letter'} className='flex items-center gap-2'>
+                                    <PenBox className='h-4 w-4' />
+                                    <span>Cover Letter</span>
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href={'/interview'} className='flex items-center gap-2'>
+                                    <GraduationCap className='h-4 w-4' />
+                                    <span>Interview Prep</span>
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    <ModeToggle />
+                    <SignedOut>
+                        <SignInButton>
+                            <Button>Sign in</Button>
+                        </SignInButton>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
                 </div>
             </nav>
-
-
-        <div>
-            <ModeToggle />
-            <SignedOut>
-                <SignInButton />
-            </SignedOut>
-            <SignedIn>
-                <UserButton />
-            </SignedIn>
-        </div>
+            <div>
+            </div>
         </header>
     )
 }
