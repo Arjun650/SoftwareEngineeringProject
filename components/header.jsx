@@ -10,7 +10,7 @@ import Image from 'next/image'
 const Header = () => {
     return (
         <header className="fixed top-0 w-full border-b dark:bg-background/80 backdrop-blur-md z-50 dark:supports-[backdrop-filter]:bg-background/60">
-            <nav className="container mx-auto px-4 h-16 flex ">
+            <nav className="container px-4 h-16 flex">
                 {/* Centering the logo */}
                 <div className="h-16 flex-1 flex items-center">
                     <Link className="flex items-center h-full object-contain" href="/">
@@ -27,7 +27,7 @@ const Header = () => {
                                 </span>
                             </Button>
                         </Link>
-                    </SignedIn>
+                    
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button>
@@ -59,7 +59,7 @@ const Header = () => {
                             </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
-
+                    </SignedIn>
                     <ModeToggle />
                     <SignedOut>
                         <SignInButton>
@@ -67,7 +67,15 @@ const Header = () => {
                         </SignInButton>
                     </SignedOut>
                     <SignedIn>
-                        <UserButton />
+                        <UserButton appearance={{
+                            elements:{
+                                avatarBox:"w-9 h-9",
+                                userButtonPopoverCard:"shadow-xl",
+                                userPreviewMainIdentifier:"font-semibold"
+                            },
+                        }}
+                        afterSignOutUrl='/'
+                        /> 
                     </SignedIn>
                 </div>
             </nav>

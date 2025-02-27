@@ -3,6 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import ClerkThemeProvider from "@/components/clerkThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +15,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body suppressHydrationWarning className={`${inter.className}`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${inter.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ClerkThemeProvider>
             {/* header */}
             <Header />
             <main className="min-h-screen bg-yellow-100 dark:bg-background/80">
@@ -33,9 +35,9 @@ export default function RootLayout({ children }) {
                 <p>Made with love ARJUN</p>
               </div>
             </footer>
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+          </ClerkThemeProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
