@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import ClerkThemeProvider from "@/components/clerkThemeProvider";
+import ProgressBar from "@/components/progressBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <>  
+    <ProgressBar />
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning className={`${inter.className}`}>
         <ThemeProvider
@@ -22,7 +25,7 @@ export default function RootLayout({ children }) {
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
-        >
+          >
           <ClerkThemeProvider>
             {/* header */}
             <Header />
@@ -39,5 +42,6 @@ export default function RootLayout({ children }) {
         </ThemeProvider>
       </body>
     </html>
+    </>
   );
 }
