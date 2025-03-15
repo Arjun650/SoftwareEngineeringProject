@@ -10,7 +10,7 @@ import Image from 'next/image'
 const Header = () => {
     return (
         <header className="fixed top-0 w-full border-b dark:bg-background/80 backdrop-blur-md z-50 dark:supports-[backdrop-filter]:bg-background/60">
-            <nav className="container px-4 h-16 flex">
+            <nav className="container px-4 h-16 flex max-w-[1650px] mx-auto items-center justify-between">
                 {/* Centering the logo */}
                 <div className="h-16 flex-1 flex items-center">
                     <Link className="flex items-center h-full object-contain" href="/">
@@ -27,7 +27,6 @@ const Header = () => {
                                 </span>
                             </Button>
                         </Link>
-                    
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button>
