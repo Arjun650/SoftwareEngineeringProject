@@ -77,6 +77,8 @@ model IndustryInsight {
   // Users in this industry
   users         User[]
   
+  jobListings   JobListing[]
+
   // Salary data
   salaryRanges  Json[]    // Array of { role: string, min: float, max: float, median: float, location: string? }
   
@@ -96,4 +98,23 @@ model IndustryInsight {
   nextUpdate    DateTime  // Scheduled update time
 
   @@index([industry])
+}
+
+
+model JobListing {
+  id            String    @id @default(cuid())
+  title         String
+  companyName   String
+  location      String?
+  industry      String    // Matches the industry field in User and IndustryInsight
+  skills        String[]  // Required skills
+  description   String    @db.Text
+  requirements  String[]  // List of job requirements
+  salaryRange   Json?     // { min: Float, max: Float, currency: String }
+  jobType       String    // Full-time, Part-time, Internship, etc.
+  postedAt      DateTime  @default(now())
+  applicationLink String?
+
+  // Relations
+  industryInsight IndustryInsight? @relation(fields: [industry], references: [industry])
 }
