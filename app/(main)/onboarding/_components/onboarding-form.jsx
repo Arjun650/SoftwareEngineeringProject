@@ -4,17 +4,27 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { onboardingSchema } from "../../lib/schema";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import useFetch from "@/hooks/use-fetch";
+import { updateUser } from "@/actions/user";
+import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 const OnboardingForm = ({ industries }) => {
     const [selectedIndustry, setSelectedIndustry] = useState(null);
     const router = useRouter();
+
+    const {
+        loading : updateLoading, 
+        fn : updateUserFn, 
+        data : updateResult
+    } = useFetch(updateUser)
 
     const { register, handleSubmit, formState: { errors }, setValue, watch, } = useForm(
         {
@@ -23,14 +33,32 @@ const OnboardingForm = ({ industries }) => {
     )
 
     const onSubmit = async (values) => {
-        console.log(values)
+        try {
+            const formattedIndustry = `${values.industry}-${values.subIndustry.toLowerCase().replace(/ /g, "-")}`; 
+            // tech-software-development
+            await updateUserFn({
+                ...values, 
+                industry: formattedIndustry,
+
+            })
+        } catch (error) {
+            console.error("Onboarding error: ", error)
+        }
     }
+
+    useEffect(() =>{
+        if(updateResult?.success && !updateLoading){
+            toast.success("Profile updated successfully!"); 
+            router.push("/dashboard"); 
+            router.refresh()
+        }
+    }, [updateResult, updateLoading])
 
     const watchIndustry = watch("industry");
 
     return (
         <div className="flex items-center justify-center ">
-            <Card className="w-full max-w-2xl mt-10 mx-2">
+            <Card className="w-full max-w-2xl mt-10 mx-2 bg-orange-50 dark:bg-background">
                 <CardHeader>
                     <CardTitle className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animated-gradient">Complete Your Profile</CardTitle>
                     <CardDescription>Select Your Industry to get personalized career insights and recommendations.</CardDescription>
@@ -87,6 +115,7 @@ const OnboardingForm = ({ industries }) => {
                             <Label htmlFor="experience">Years Of Experience</Label>
 
                             <Input id="experience" type="number" min="0" max="50" placeholder="Enter years of Experience" {...register("experience")} />
+
                             {
                                 errors.experience && (
                                     <p className="text-sm text-red-500">
@@ -121,7 +150,20 @@ const OnboardingForm = ({ industries }) => {
                                 )
                             }
                         </div>
-                        <Button type="submit" className="w-full">Complete Profile</Button>
+                        <Button type="submit" className="w-full" disabled={updateLoading}>
+                            {/* Complete Profile */}
+                            {
+                                updateLoading ? (
+                                    <>
+                                        <Loader2 className='mr-2 h-4 w-4 animate-spin'/>
+                                        Saving...
+                                    </>
+                                ): 
+                                (
+                                    "Complete Profile"
+                                )
+                            }
+                        </Button>
                     </form>
                 </CardContent>
             </Card>

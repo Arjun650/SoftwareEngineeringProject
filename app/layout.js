@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import ClerkThemeProvider from "@/components/clerkThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
               {/* header */}
               <Header />
               <main className="min-h-screen">{children}</main>
+              <Toaster richColors/>
             </ClerkThemeProvider>
           </ThemeProvider>
         </body>
