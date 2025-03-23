@@ -1,7 +1,7 @@
 "use server";
 
+import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
-import { a } from "framer-motion/dist/types.d-B50aGbjN";
 
 export async function updateUser(data) {
   const { userId } = await auth();
@@ -59,10 +59,10 @@ export async function updateUser(data) {
       }
     );
 
-    return result.user;
+    return {success: true, ...result};
   } catch (error) {
     console.error("Error updating user and industry: ", error.message);
-    throw new Error("Error updating user and industry");
+    throw new Error("Error updating user and industry", error.message);
   }
 }
 
