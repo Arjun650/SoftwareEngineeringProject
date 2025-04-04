@@ -2,7 +2,6 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { onboardingSchema } from "../../lib/schema";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -15,15 +14,16 @@ import useFetch from "@/hooks/use-fetch";
 import { updateUser } from "@/actions/user";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { onboardingSchema } from "@/app/lib/schema";
 
 const OnboardingForm = ({ industries }) => {
-    const [selectedIndustry, setSelectedIndustry] = useState(null);
     const router = useRouter();
+    const [selectedIndustry, setSelectedIndustry] = useState(null);
 
     const {
-        loading : updateLoading, 
-        fn : updateUserFn, 
-        data : updateResult
+        loading: updateLoading,
+        fn: updateUserFn,
+        data: updateResult
     } = useFetch(updateUser)
 
     const { register, handleSubmit, formState: { errors }, setValue, watch, } = useForm(
@@ -34,22 +34,21 @@ const OnboardingForm = ({ industries }) => {
 
     const onSubmit = async (values) => {
         try {
-            const formattedIndustry = `${values.industry}-${values.subIndustry.toLowerCase().replace(/ /g, "-")}`; 
+            const formattedIndustry = `${values.industry}-${values.subIndustry.toLowerCase().replace(/ /g, "-")}`;
             // tech-software-development
             await updateUserFn({
-                ...values, 
+                ...values,
                 industry: formattedIndustry,
-
             })
         } catch (error) {
             console.error("Onboarding error: ", error)
         }
     }
 
-    useEffect(() =>{
-        if(updateResult?.success && !updateLoading){
-            toast.success("Profile updated successfully!"); 
-            router.push("/dashboard"); 
+    useEffect(() => {
+        if (updateResult?.success && !updateLoading) {
+            toast.success("Profile updated successfully!");
+            router.push("/dashboard");
             router.refresh()
         }
     }, [updateResult, updateLoading])
@@ -115,7 +114,6 @@ const OnboardingForm = ({ industries }) => {
                             <Label htmlFor="experience">Years Of Experience</Label>
 
                             <Input id="experience" type="number" min="0" max="50" placeholder="Enter years of Experience" {...register("experience")} />
-
                             {
                                 errors.experience && (
                                     <p className="text-sm text-red-500">
@@ -155,13 +153,13 @@ const OnboardingForm = ({ industries }) => {
                             {
                                 updateLoading ? (
                                     <>
-                                        <Loader2 className='mr-2 h-4 w-4 animate-spin'/>
+                                        <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                                         Saving...
                                     </>
-                                ): 
-                                (
-                                    "Complete Profile"
-                                )
+                                ) :
+                                    (
+                                        "Complete Profile"
+                                    )
                             }
                         </Button>
                     </form>

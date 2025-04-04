@@ -19,7 +19,7 @@ const Header = async() => {
                 {/* Centering the logo */}
                 <div className="h-16 flex-1 flex items-center">
                     <Link className="flex items-center h-full object-contain" href="/">
-                        <Image src="/logo1.png" alt="ELEV" width={200} height={60} className=" h-12 md:h-16 w-auto object-contain " />
+                        <Image src="/logo4.png" alt="ELEV" width={300} height={80} className=" h-16 md:h-20 w-auto object-contain " />
                     </Link>
                 </div>
                 <div className='flex items-center space-x-2 md:space-x-4'>

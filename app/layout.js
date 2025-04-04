@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "AI Carrier | ARJUN",
   description: "Software engineering project",
+
 };
 
 export default function RootLayout({ children }) {

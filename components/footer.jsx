@@ -1,15 +1,21 @@
 import Image from 'next/image'
+import { useEffect, useState } from 'react';
 
 const Footer = () => {
+    const [year, setYear] = useState(null);
+
+    useEffect(() => {
+        setYear(new Date().getFullYear());
+    }, []);
     return (
-<footer className="bg-orange-400 text-neutral-800 z-20 relative dark:bg-neutral-950 dark:text-neutral-300">
+        <footer className="bg-orange-400 text-neutral-800 z-20 relative dark:bg-neutral-950 dark:text-neutral-300">
             <div className="container mx-auto px-6 py-12">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
                     <div className="col-span-2">
                         <div className="flex items-center space-x-2 mb-4">
-                           
+
                             <span className="text-xl font-bold text-neutral-600 dark:text-white">
-                                <Image src={"/logo1.png"} width={120} height={60} alt='logo'/>
+                                <Image src={"/logo1.png"} width={120} height={60} alt='logo' />
                             </span>
                         </div>
                         <p className="text-neutral-600 mb-4 dark:text-neutral-300">
@@ -159,8 +165,7 @@ const Footer = () => {
                 </div>
                 <div className="mt-12 pt-8 border-t border-slate-800 text-center text-neutral-800 dark:text-white dark:border-white/[0.2]">
                     <p>
-                        &copy; {new Date().getFullYear()} ELEV. All rights
-                        reserved.
+                        &copy; {year ?? "2024"} ELEV. All rights reserved.
                     </p>
                 </div>
             </div>
