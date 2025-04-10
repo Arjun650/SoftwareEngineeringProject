@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import ClerkThemeProvider from "@/components/clerkThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
+import TopLoader from "@/components/TopLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -24,6 +27,7 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
+            <TopLoader />
             <ClerkThemeProvider>
               {/* header */}
               <Header />

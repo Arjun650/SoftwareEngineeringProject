@@ -24,7 +24,6 @@ export default function Home() {
       <div className={theme === "dark" ? "grid-background" : "grid-background-light"}>
         <Landing/>
         <Footer />
-        
       </div>
     </div>
   );
