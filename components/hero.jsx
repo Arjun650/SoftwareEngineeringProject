@@ -25,7 +25,7 @@ const AnimatedText = ({ text, className = "" }) => {
                         <motion.span
                             key={`${wordIndex}-${charIndex}`}
                             variants={letterVariants}
-                            className="inline-block"
+                            className="inline-block "
                         >
                             {char}
                         </motion.span>
@@ -51,15 +51,15 @@ const HeroSection = () => {
                     </span>
 
                 </h1>
-                <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
+                    <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl ">
                     Advance your career with personalized guidance, interview prep, and AI-powered tools for Job Success.
                 </p>
                 <div className="flex justify-center space-x-4">
-                    <Link href="/dashboard">
-                        <Button size="lg" className="px-8">
+                    <Button size="lg" className="px-8">
+                        <a href={"/dashboard"} >
                             Get Started
-                        </Button>
-                    </Link>
+                        </a>
+                    </Button>
                     <Link href="https://arjunkdas.vercel.app">
                         <Button size="lg" variant="outline" className="px-8">
                             Watch Demo

@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.className} bg-orange-100 dark:bg-background/60`}>
+        <body className={`${inter.className} bg-orange-100 dark:bg-background/60 select-none`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
             <ClerkThemeProvider>
               {/* header */}
               <Header />
-              <main className="min-h-screen">{children}</main>
+              <main className="">{children}</main>
               <Toaster richColors/>
             </ClerkThemeProvider>
           </ThemeProvider>
