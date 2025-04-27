@@ -3,7 +3,7 @@ import { ModeToggle } from './toggle'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import { Button } from './ui/button'
-import { ChevronDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon } from 'lucide-react'
+import { BriefcaseBusiness, ChevronDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import Image from 'next/image'
 import { checkUser } from '@/lib/checkUser'
@@ -59,6 +59,12 @@ const Header = async() => {
                                 <Link href={'/interview'} className='flex items-center gap-2'>
                                     <GraduationCap className='h-4 w-4' />
                                     <span>Interview Prep</span>
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href={'/job-posting'} className='flex items-center gap-2'>
+                                    <BriefcaseBusiness  className='h-4 w-4' />
+                                    <span>Explore jobs</span>
                                 </Link>
                             </DropdownMenuItem>
                         </DropdownMenuContent>
