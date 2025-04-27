@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; // 👈 ADD THIS at top
+
 import { getIndustryInsights } from '@/actions/dashboard';
 import getJobListingsByIndustry from '@/actions/jobs';
 import JobListingsPageClient from './_component/JobListingsPageClient';

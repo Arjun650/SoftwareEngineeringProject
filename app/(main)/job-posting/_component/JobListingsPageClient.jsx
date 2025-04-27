@@ -18,7 +18,7 @@ const JobListingsPageClient = ({ jobListings, userIndustry }) => {
 
                             <div className="mb-4">
                                 <strong className="block mb-2">Skills:</strong>
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-2 text-red-300">
                                     {job.skills.map((skill, id) => (
                                         <span
                                             key={id}

@@ -7,6 +7,7 @@ const isProtectedRoute = createRouteMatcher([
   "/ai-cover-letter(.*)",
   "/interview(.*)",
   "/onboarding(.*)",
+  "/job-posting(.*)"
 
 ])
 
