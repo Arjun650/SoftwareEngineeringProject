@@ -20,13 +20,16 @@ export const generateAIInsights = async (industry) => {
             "marketOutlook": "Positive" | "Neutral" | "Negative",
             "keyTrends": ["trend1", "trend2"],
             "recommendedSkills": ["skill1", "skill2"],
+            "topCompaniesIndia": ["company1", "company2"],
+            "topCompaniesWorld": ["company1", "company2"]
           }
           
           IMPORTANT: Return ONLY the JSON. No additional text, notes, or markdown formatting.
           Include at least 5 common roles for salary ranges.
           Growth rate should be a percentage.
           Include at least 5 skills and trends.
-          Make sure locations are of india
+          Include at least 5 companies for india. 
+          Include at least 5 companiew worldwide
         `;
 
   const result = await model.generateContent(prompt);

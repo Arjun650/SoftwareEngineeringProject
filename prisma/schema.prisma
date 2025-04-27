@@ -93,6 +93,10 @@ model IndustryInsight {
   
   // Learning suggestions
   recommendedSkills String[]  // Skills recommended for the industry
+
+    // New fields you asked for
+  topCompaniesIndia String[]   // List of top companies in India
+  topCompaniesWorld String[]   // List of top companies worldwide
   
   lastUpdated   DateTime  @default(now())
   nextUpdate    DateTime  // Scheduled update time

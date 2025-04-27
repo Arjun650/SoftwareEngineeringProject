@@ -160,6 +160,8 @@ const DashboardView = ({ insights }) => {
             </div>
           </CardContent>
         </Card>
+
+        
       </div>
 
       {/* Salary Ranges Chart */}
@@ -232,6 +234,38 @@ const DashboardView = ({ insights }) => {
           <CardContent>
             <div className="flex flex-wrap gap-2">
               {insights.recommendedSkills.map((skill) => (
+                <Badge key={skill} variant="outline">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-orange-50 dark:bg-background">
+          <CardHeader>
+            <CardTitle>Top Companies in India</CardTitle>
+            <CardDescription>Leading organizations hiring in this industry</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2">
+              {insights.topCompaniesIndia.map((skill) => (
+                <Badge key={skill} variant="outline">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-orange-50 dark:bg-background">
+          <CardHeader>
+            <CardTitle>Top Companies around World</CardTitle>
+            <CardDescription>Leading organizations around world hiring in this industry</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2">
+              {insights.topCompaniesWorld.map((skill) => (
                 <Badge key={skill} variant="outline">
                   {skill}
                 </Badge>
