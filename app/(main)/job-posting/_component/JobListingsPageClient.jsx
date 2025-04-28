@@ -1,7 +1,9 @@
 "use client";
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const JobListingsPageClient = ({ jobListings, userIndustry }) => {
+    const router = useRouter();
     return (
         <div className="container mx-auto p-6 ">
             <h1 className="text-3xl font-bold mb-8 text-center">Job Listings for {userIndustry}</h1>
@@ -38,7 +40,7 @@ const JobListingsPageClient = ({ jobListings, userIndustry }) => {
                                     Apply Now
                                 </button>
                                 <button
-                                    onClick={() => window.open(job.applicationLink, "_blank")}
+                                    onClick={() => router.push("../interview/mock")}
                                     className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 transition"
                                 >
                                     Prepare Now
