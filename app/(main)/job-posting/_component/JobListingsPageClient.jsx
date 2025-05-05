@@ -45,6 +45,12 @@ const JobListingsPageClient = ({ jobListings, userIndustry }) => {
                                 >
                                     Prepare Now
                                 </button>
+                                <button
+                                    onClick={() => router.push("../resume")}
+                                    className="bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition"
+                                >
+                                    Build Resume
+                                </button>
                             </div>
                         </div>
                     ))

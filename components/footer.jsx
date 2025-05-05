@@ -18,7 +18,7 @@ const Footer = () => {
                                 <Image src={"/logo4.png"} width={120} height={120} alt='logo' />
                             </span>
                         </div>
-                        <p className="text-neutral-600 mb-4 -mt-4 dark:text-neutral-500">
+                        <p className="text-netutral-600 mb-4 -mt-4 dark:text-neutral-500">
                             Brew Your Carreer Success
                         </p>
                     </div>
@@ -43,14 +43,14 @@ const Footer = () => {
                             </li> */}
                             <li>
                                 <a
-                                    href="#"
+                                    href="#testimoinals"
                                     className="hover:text-white transition-colors ">
                                     Testimonials
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="#"
+                                    href="#faq"
                                     className="hover:text-white transition-colors ">
                                     FAQ
                                 </a>
@@ -64,28 +64,28 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li>
                                 <a
-                                    href="#"
+                                    href="#about"
                                     className="hover:text-white transition-colors ">
                                     About
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="#"
+                                    href="#career"
                                     className="hover:text-white transition-colors ">
                                     Careers
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="#"
+                                    href="#blog"
                                     className="hover:text-white transition-colors ">
                                     Blog
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="#"
+                                    href="#contact"
                                     className="hover:text-white transition-colors ">
                                     Contact
                                 </a>

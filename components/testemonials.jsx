@@ -31,7 +31,7 @@ const Testemonials = () => {
       ];
   return (
     <div>
-      <section className="w-full py-12 md:py-24 bg-muted/50">
+      <section className="w-full py-12 md:py-24 bg-muted/50" id="testimoinals">
         <div className="container mx-auto px-2 md:px-6">
           <h2 className="leading-tight text-3xl sm:text-5xl md:text-[5vw] font-semibold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animated-gradient text-center">
             What Our Users Say

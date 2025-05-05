@@ -128,9 +128,15 @@ export default async function getJobListingsByIndustry(userIndustry) {
     try {
       const jobListings = await db.jobListing.findMany({
         where: {
-          industry: userIndustry,
+          industry: {
+            contains: userIndustry.split('-')[0],
+            mode: 'insensitive'
+          },
+          // industry: userIndustry
         },
       });
+
+      console.log(userIndustry.split('-')[0])
   
     //   if (jobListings.length > 0) {
     //     console.log(`Found ${jobListings.length} job listings for industry: ${userIndustry}`);

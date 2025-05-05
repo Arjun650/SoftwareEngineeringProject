@@ -35,7 +35,7 @@ const FactsAndQueries = () => {
         },
       ];
     return (
-        <section className="w-full py-12 md:py-24">
+        <section className="w-full py-12 md:py-24" id='faq'>
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center max-w-3xl mx-auto mb-12">
                     <h2 className="text-3xl font-bold mb-4">

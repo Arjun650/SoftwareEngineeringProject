@@ -9,7 +9,7 @@ import TopLoader from "@/components/TopLoader";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AI Carrier | ARJUN",
+  title: "Prepuccino | AI COACH",
   description: "Software engineering project",
 
 };
