@@ -29,7 +29,8 @@ export const generateAIInsights = async (industry) => {
           Growth rate should be a percentage.
           Include at least 5 skills and trends.
           Include at least 5 companies for india. 
-          Include at least 5 companiew worldwide
+          Include at least 5 companiew worldwide. 
+          make sure if the demand level is low or medium give sometimes low or medium and also about market outlook make it negative sometimes and same for industry growth too. 
         `;
 
   const result = await model.generateContent(prompt);

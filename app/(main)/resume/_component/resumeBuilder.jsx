@@ -142,10 +142,10 @@ export default function ResumeBuilder({ initialContent, initialJsonContent }) {
       const element = document.getElementById("resume-pdf");
       // const html2pdf = (await import('html2pdf.js/dist/html2pdf.min.js')).default; 
       const opt = {
-        margin: [10, 10],
+        margin: [5, 5],
         filename: "resume.pdf",
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2 },
+        html2canvas: { scale: 1 },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       };
 
