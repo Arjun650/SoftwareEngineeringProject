@@ -67,6 +67,7 @@ const Header = async() => {
                                     <span>Explore jobs</span>
                                 </Link>
                             </DropdownMenuItem>
+                            
                         </DropdownMenuContent>
                     </DropdownMenu>
                     </SignedIn>

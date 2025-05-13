@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import ClerkThemeProvider from "@/components/clerkThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import TopLoader from "@/components/TopLoader";
+import ExitIntentForm from "@/components/ExitIntend";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
               {/* header */}
               <Header />
               <main className="">{children}</main>
+              <ExitIntentForm/>
               <Toaster richColors/>
             </ClerkThemeProvider>
           </ThemeProvider>
