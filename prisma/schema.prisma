@@ -124,3 +124,15 @@ model JobListing {
   // Relations
   industryInsight IndustryInsight? @relation(fields: [industry], references: [industry])
 }
+
+
+
+model Feedback {
+  id          String   @id @default(cuid())
+  name        String   // Name of the person submitting feedback
+  helpful     String   // What was helpful
+  improvement String   // What can be improved
+  reason      String   // Why the user is leaving
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

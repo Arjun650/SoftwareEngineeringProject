@@ -1,10 +1,11 @@
-"use client"; 
+"use client";
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import HeroSection from "@/components/hero";
 import Footer from "@/components/footer";
 import Landing from "@/components/Landing";
+import ExitIntentForm from "@/components/ExitIntend";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -22,8 +23,10 @@ export default function Home() {
     <div>
       {/* Apply correct grid background class dynamically */}
       <div className={theme === "dark" ? "grid-background" : "grid-background-light"}>
-        <Landing/>
+        <Landing />
         <Footer />
+        <ExitIntentForm />
+
       </div>
     </div>
   );
