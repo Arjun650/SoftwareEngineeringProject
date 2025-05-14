@@ -5,6 +5,7 @@
 
 * {
     pointer-events: auto !important;
+    scroll-behavior: smooth;
 }
   
 
