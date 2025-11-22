@@ -19,7 +19,8 @@ const Header = async() => {
                 {/* Centering the logo */}
                 <div className="h-16 flex-1 flex items-center">
                     <Link className="flex items-center h-full object-contain" href="/">
-                        <Image src="/logo4.png" alt="ELEV" width={300} height={80} className=" h-16 md:h-20 w-auto object-contain " />
+                        <Image src="/logo4.png" alt="ELEV" width={300} height={80} className=" h-[190px]  w-auto object-contain " />
+                        {/* Carrier Pilot */}
                     </Link>
                 </div>
                 <div className='flex items-center space-x-2 md:space-x-4'>
@@ -44,24 +45,28 @@ const Header = async() => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
                             <DropdownMenuItem>
-                                <Link href={'/resume'} className='flex items-center gap-2'>
+                                <Link href={'/'} className='flex items-center gap-2'>
+                                {/* <Link href={'/resume'} className='flex items-center gap-2'> */}
                                     <FileText className='h-4 w-4' />
                                     <span>Build Resume</span>
                                 </Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem>
-                                <Link href={'/ai-cover-letter'} className='flex items-center gap-2'>
+                                <Link href={'/'} className='flex items-center gap-2'>
+                                {/* <Link href={'/ai-cover-letter'} className='flex items-center gap-2'> */}
                                     <PenBox className='h-4 w-4' />
                                     <span>Cover Letter</span>
                                 </Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem>
+                                {/* <Link href={'/'} className='flex items-center gap-2'> */}
                                 <Link href={'/interview'} className='flex items-center gap-2'>
                                     <GraduationCap className='h-4 w-4' />
                                     <span>Interview Prep</span>
                                 </Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem>
+                                {/* <Link href={'/'} className='flex items-center gap-2'> */}
                                 <Link href={'/job-posting'} className='flex items-center gap-2'>
                                     <BriefcaseBusiness  className='h-4 w-4' />
                                     <span>Explore jobs</span>

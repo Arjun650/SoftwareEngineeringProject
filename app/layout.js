@@ -10,7 +10,7 @@ import ExitIntentForm from "@/components/ExitIntend";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Prepuccino | AI COACH",
+  title: "Prepuccino | Carrier Pilot",
   description: "Software engineering project",
 
 };

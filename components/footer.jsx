@@ -165,7 +165,7 @@ const Footer = () => {
                 </div>
                 <div className="mt-12 pt-8 border-t border-slate-800 text-center text-neutral-800 dark:text-white dark:border-white/[0.2]">
                     <p>
-                        &copy; {year ?? "2024"} Prepuccino. All rights reserved.
+                        &copy; {year ?? "2024"} Carrier Pilot. All rights reserved.
                     </p>
                 </div>
             </div>
